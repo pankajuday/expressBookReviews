@@ -1,10 +1,10 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const session = require("express-session");
-const customer_routes = require("../router/auth_users.js").authenticated;
-const genl_routes = require("../router/general.js").general;
+const customer_routes = require("./router/auth_users.js").authenticated;
+const genl_routes = require("./router/general.js").general;
 const crypto = require("crypto");
-const login_session_secret = require("../router/auth_users.js").logSec;
+const login_session_secret = require("./router/auth_users.js").logSec;
 
 const app = express();
 
@@ -39,7 +39,7 @@ app.use("/customer/auth/*", function auth(req, res, next) {
   }
 });
 
-const PORT = 5000;
+const PORT = 3000;
 
 app.use("/customer", customer_routes);
 app.use("/", genl_routes);
